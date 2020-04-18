@@ -1,13 +1,27 @@
 package com.gulimall.product;
 
-import org.junit.jupiter.api.Test;
+import com.gulimall.product.entity.BrandEntity;
+import com.gulimall.product.service.BrandService;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
+@Slf4j
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class GulimallProductApplicationTests {
+public class GulimallProductApplicationTests {
+
+    @Autowired
+    private BrandService brandService;
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+        BrandEntity brandEntity =new BrandEntity();
+        brandEntity.setName("hfjhdsj");
+        brandService.save(brandEntity);
     }
 
 }
