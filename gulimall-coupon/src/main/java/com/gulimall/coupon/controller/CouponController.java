@@ -1,5 +1,6 @@
 package com.gulimall.coupon.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -29,6 +30,15 @@ import com.gulimall.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @RequestMapping("/member/getCouponList")
+    public R getCouponList(){
+        ArrayList<CouponEntity> list = new ArrayList<>();
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("满一千送洗衣粉");
+        list.add(couponEntity);
+        return R.ok().put("rows", list);
+    }
 
     /**
      * 列表
